@@ -40,6 +40,18 @@ public class practice {
     }
 
 
+    public static void PairTheArray(int array[]){
+        for(int i=0;i<=array.length-1;i++){
+            for(int j=i+1;j<=array.length-1;j++){
+                System.out.print("("+array[i]+","+array[j]+")");
+            }
+                    System.out.println();
+
+        }
+      
+    }
+
+
     public static void PrintArray(int array[]){
         for(int i=0;i<array.length;i++){
             System.out.print(array[i]+" ");
@@ -47,18 +59,19 @@ public class practice {
     }
 
     public static void main(String args[]) {
-        int array[] = new int[10];
+        int array[] = new int[5];
 
         for (int i = 0; i < array.length; i++) {
 
-            array[i] = i;
+            array[i] = i+1;
 
         }
+        // PrintArray(array);
 
-        PrintArray(array);
+        PairTheArray(array);
 
-        ReverseTheArray(array);
-        PrintArray(array);
+
+       
 
         
 
