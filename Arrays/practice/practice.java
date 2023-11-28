@@ -65,9 +65,9 @@ public class practice {
 
         int k = 0;
 
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]!=val){
-                nums[k]=nums[i];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[k] = nums[i];
                 k++;
             }
         }
@@ -76,22 +76,21 @@ public class practice {
 
     }
 
-    public static int  maxSubarrayPrefix(int array[]){
-        int max=0;
-        int prefix[]=new int [array.length];
-        prefix[0]=array[0];
-        for(int i=1;i<prefix.length;i++){
-            prefix[i]=prefix[i-1]+array[i];
+    public static int maxSubarrayPrefix(int array[]) {
+        int max = 0;
+        int prefix[] = new int[array.length];
+        prefix[0] = array[0];
+        for (int i = 1; i < prefix.length; i++) {
+            prefix[i] = prefix[i - 1] + array[i];
         }
 
-        for(int i=0;i<array.length;i++){
-            for(int j=i+1;j<array.length;j++){
-                int currentsum=i==0?prefix[j]:prefix[j]-prefix[i-1];
-                if(max<currentsum){
-                    max=currentsum;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                int currentsum = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1];
+                if (max < currentsum) {
+                    max = currentsum;
                 }
 
-              
                 System.out.println();
             }
             System.out.println();
@@ -101,24 +100,37 @@ public class practice {
 
     }
 
+    public static int kadanesMaxSuArray(int array[]) {
+        int max = Integer.MIN_VALUE;
+        int currentsum = 0;
 
-    public static int  kadanesMaxSuArray(int array[]){
-        int max=Integer.MIN_VALUE;
-        int currentsum=0;
-
-        for(int i=0;i<array.length;i++){
-            currentsum+=array[i];
-            if(currentsum<0){
-                currentsum=0;
+        for (int i = 0; i < array.length; i++) {
+            currentsum += array[i];
+            if (currentsum < 0) {
+                currentsum = 0;
             }
-            if(max<currentsum){
-                max=currentsum;
+            if (max < currentsum) {
+                max = currentsum;
             }
         }
 
-
-
         return max;
+    }
+
+    public static int missingNumber(int array[]) {
+        int n = array.length;
+        int expectedsum = ((n) * (n + 1)) / 2;
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += array[i];
+        }
+
+        if (sum == expectedsum) {
+            return 0;
+        } else {
+            return expectedsum - sum;
+        }
     }
 
     public static void PrintArray(int array[]) {
@@ -128,11 +140,9 @@ public class practice {
     }
 
     public static void main(String args[]) {
-        int array[] = { -2,-3,4,-1,-2,1,5,-3};
+        int array[] = { 0, 1, 2, 3, 5, 6 };
 
-        System.out.println(maxSubarrayPrefix(array));
-
-        
+        System.out.println(missingNumber(array));
 
     }
 }
