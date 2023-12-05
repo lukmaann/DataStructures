@@ -1,0 +1,98 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "arratyQuestions",
+            "request": "launch",
+            "mainClass": "Arrays.arratyQuestions",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "checkDuplicates",
+            "request": "launch",
+            "mainClass": "Arrays.checkDuplicates",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "mergeSortedArray",
+            "request": "launch",
+            "mainClass": "Arrays.mergeSortedArray",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "pascalsTrigle",
+            "request": "launch",
+            "mainClass": "Arrays.pascalsTrigle",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "sortingArray",
+            "request": "launch",
+            "mainClass": "Arrays.practiceQ.sortingArray",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "sortArrays",
+            "request": "launch",
+            "mainClass": "Arrays.sortArrays",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "trapRain",
+            "request": "launch",
+            "mainClass": "Arrays.trapRain",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "Arrays2d",
+            "request": "launch",
+            "mainClass": "Arrays2d.Arrays2d",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "spiralPrint",
+            "request": "launch",
+            "mainClass": "Arrays2d.spiralPrint",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "functions",
+            "request": "launch",
+            "mainClass": "javaBasics.functions",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "javaBasics",
+            "request": "launch",
+            "mainClass": "javaBasics.javaBasics",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "patterns",
+            "request": "launch",
+            "mainClass": "javaBasics.patterns",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        }
+    ]
+}
