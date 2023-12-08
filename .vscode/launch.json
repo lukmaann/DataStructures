@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "singleNumber",
+            "request": "launch",
+            "mainClass": "Arrays.singleNumber",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "priceOfStocks",
+            "request": "launch",
+            "mainClass": "Arrays.practiceQ.priceOfStocks",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "staircaseSearch",
+            "request": "launch",
+            "mainClass": "Arrays2d.staircaseSearch",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "diagonalSum",
+            "request": "launch",
+            "mainClass": "Arrays2d.diagonalSum",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
