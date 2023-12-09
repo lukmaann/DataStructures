@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "sortestRoute",
+            "request": "launch",
+            "mainClass": "Strings.ArrayOfStrings.sortestRoute",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "Strings",
+            "request": "launch",
+            "mainClass": "Strings.ArrayOfStrings.Strings",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "Practise",
+            "request": "launch",
+            "mainClass": "Arrays2d.practiseProblems.Practise",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "howMany7s",
+            "request": "launch",
+            "mainClass": "Arrays2d.practiseProblems.howMany7s",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
             "name": "singleNumber",
             "request": "launch",
             "mainClass": "Arrays.singleNumber",
