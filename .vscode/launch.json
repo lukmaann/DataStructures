@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "practice",
+            "request": "launch",
+            "mainClass": "Bitmanipulation.practice",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "anagram",
+            "request": "launch",
+            "mainClass": "Strings.Quetions.anagram",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "vowelsCount",
+            "request": "launch",
+            "mainClass": "Strings.Quetions.vowelsCount",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "stringCompression",
+            "request": "launch",
+            "mainClass": "Strings.Quetions.stringCompression",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "convertFirstLetterToUpperCase",
+            "request": "launch",
+            "mainClass": "Strings.Quetions.convertFirstLetterToUpperCase",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
+            "name": "StringPractice",
+            "request": "launch",
+            "mainClass": "Strings.StringPractice",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
             "name": "sortestRoute",
             "request": "launch",
             "mainClass": "Strings.ArrayOfStrings.sortestRoute",
