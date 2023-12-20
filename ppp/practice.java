@@ -1,167 +1,252 @@
 package ppp;
 
+/**
+ * practice
+ */
 public class practice {
 
+    public static int[] plusone(int array[]) {
+        for (int i = array.length - 1; i >= 0; i--) {
 
-
-    public static int removeElements(int array[],int val){
-        int j=0;
-
-        for(int i=0;i<array.length;i++){
-            if(array[i]!=val){
-                array[j]=array[i];
-                j++;
-            }
-        }
-
-
-
-        return j;
-    }
-
-
-    public static int[] plusOne(int array[]){
-        for(int i=array.length-1;i>=0;i--){
-            if(array[i]<9){
+            if (array[i] < 9) {
                 array[i]++;
                 return array;
             }
-            array[i]=0;
-        }
-        array=new int[array.length+1];
-        array[0]=1;
-        return array;
+            array[i] = 0;
 
+        }
+
+        array = new int[array.length + 1];
+        array[0] = 1;
+        return array;
     }
 
-    public static void printArray(int array[]){
-        for(int i=0;i<array.length;i++){
-            System.out.print(array[i]+" ");
+    public static void printArray(int array[]) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
 
         }
         System.out.println();
     }
 
+    public static int trapwater(int array[]) {
+        int n = array.length;
 
-    public static int trapWater(int height[]){
-        int n=height.length;
+        int leftmax[] = new int[n];
+        int rightmax[] = new int[n];
 
-        int []leftmax=new int[n];
-        int []rightmax=new int[n];
+        leftmax[0] = array[0];
+        rightmax[n - 1] = array[n - 1];
 
-        leftmax[0]=height[0];
-        rightmax[n-1]=height[n-1];
-
-        for(int i=0;i<n;i++){
-            leftmax[i]=Math.max(height[i],leftmax[i-1]);
+        for (int i = 1; i < n; i++) {
+            leftmax[i] = Math.max(leftmax[i - 1], array[i]);
         }
 
-        for(int i=n-2;i>=0;i--){
-            rightmax[i]=Math.max(height[i],rightmax[i+1]);
-
-
+        for (int i = n - 2; i >= 0; i--) {
+            rightmax[i] = Math.max(rightmax[i + 1], array[i]);
         }
 
-        int trappedWater=0;
+        int trapwater = 0;
 
-        for(int i=0;i<n;i++){
-            int waterLevel=Math.min(leftmax[i],rightmax[i]);
-            trappedWater+=waterLevel-height[i];
+        for (int i = 0; i < n; i++) {
+            int waterLevel = Math.min(rightmax[i], leftmax[i]);
+            trapwater += waterLevel - array[i];
         }
 
-        return trappedWater;
-    }
-    
+        return trapwater;
 
-    public static int[] spiralOrder(int[][] matrix) {
-
-        int n=matrix.length;
-        int m=matrix[0].length;
-
-        int array[]=new int[n*m];
-        int k=0;
-        
-        int startrow=0;
-        int startcol=0;
-        int endcol=matrix.length-1;
-        int endrow=matrix[0].length-1;
-        
-
-
-        while(startrow<=endrow && startcol<=endcol){
-            for(int j=0;j<=endcol;j++){
-                array[k]=matrix[startrow][j];
-                
-                k++;
-            }
-
-            for(int i=startrow+1;i<=endrow;i++){
-                array[k]=matrix[i][endcol];
-                k++;
-
-            }
-            for(int j=endcol-1;j>=startcol;j--){
-                array[k]=matrix[endrow][j];
-                k++;
-            }
-
-            for(int i=endrow-1;i>=startrow+1;i--){
-                array[k]=matrix[i][startcol];
-            }
-        }
-
-
-        return array;
-
-
-        
     }
 
+    public static int maxArea(int height[]) {
+        int n = height.length;
 
-    public static int maxTrapwater(int height[]){
-       
-        int n=height.length;
+        int left = 0;
+        int right = n - 1;
 
-        int left=0;
-        int right=n-1;
+        int max = Integer.MIN_VALUE;
 
-        int maxarea=Integer.MIN_VALUE;
-        while(left<right){
-            int width=right-left;
-            int barHeights=Math.min(height[left],height[right]);
+        while (left < right) {
+            int w = right - left;
+            int bh = Math.min(height[left], height[right]);
+            int c = w * bh;
 
-            int currentarea=width*barHeights;
+            max = Math.max(max, c);
 
-            maxarea=Math.max(currentarea, maxarea);
-
-            if(height[left]<height[right]){
+            if (height[left] < height[right]) {
                 left++;
-            }else if(height[left]>height[right]){
+
+            } else if (height[right] < height[left]) {
                 right--;
+            } else {
+                left++;
+                right++;
+            }
+
+        }
+        return max;
+    }
+
+    public static boolean checkvowel(char ch) {
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            return true;
+        }
+        return false;
+    }
+
+    public static String reverseStringvowels(String s) {
+
+        char ch[] = s.toLowerCase().toCharArray();
+        int start = 0;
+        int end = ch.length - 1;
+
+        StringBuilder sb = new StringBuilder();
+
+        while (start < end) {
+            if (!checkvowel(ch[start])) {
+                start++;
+
+            }
+            if (!checkvowel(ch[end])) {
+                end--;
+
+            }
+
+            if (checkvowel(ch[start]) && checkvowel(ch[end])) {
+                char temp = ch[start];
+                ch[start] = ch[end];
+                ch[end] = temp;
+                start++;
+                end--;
+            }
+
+        }
+
+        for (int i = 0; i < ch.length; i++) {
+            sb.append(ch[i]);
+        }
+
+        return sb.toString();
+
+    }
+
+    public static String reverseStringFromI(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'i' || s.charAt(i) == 'I') {
+                sb.reverse();
+            } else {
+                sb.append(s.charAt(i));
+            }
+        }
+
+        return sb.toString();
+
+    }
+
+    public static String reversewithk(String s, int k) {
+
+        char[] ch = s.toCharArray();
+
+        for (int i = 0; i < ch.length; i += k * 2) {
+            int start = i;
+            int end = Math.min(ch.length - 1, i + k - 1);
+
+            while (start < end) {
+
+                char temp = ch[start];
+                ch[start] = ch[end];
+                ch[end] = temp;
+
+                start++;
+                end--;
+            }
+
+        }
+        String sn = new String(ch);
+        return sn;
+
+    }
+
+    public static int[] moveZeros(int nums[]) {
+
+        int n = nums.length;
+
+        int k = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != 0) {
+                int temp = nums[i];
+                nums[i] = nums[k];
+                nums[k] = temp;
+                k++;
+
+            }
+        }
+
+        return nums;
+    }
+
+    public static int[] opreations(int nums[]) {
+        int n = nums.length;
+
+        int k = 0;
+
+        for (int i = 0; i < n - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                nums[i] *= 2;
+                nums[i + 1] = 0;
+            }
+            
+        }
+
+        for(int i=0;i<n;i++){
+            if (nums[i] != 0) {
+
+                nums[k] = nums[i];
+                k++;
+
+            }
+        }
+
+        while (k < n) {
+            nums[k] = 0;
+            k++;
+        }
+
+        return nums;
+    }
+
+
+
+    public static String removeStar(String s){
+
+        StringBuilder sb= new StringBuilder("");
+
+        char ch[]= s.toCharArray();
+
+        for(int i=0;i<ch.length;i++){
+            if(ch[i]!='*'){
+                sb.append(ch[i]);
             }else{
-                left++;
-                right--;
+                sb.deleteCharAt(sb.length()-1);
             }
-
-
         }
+        
+
+        return sb.toString();
+   
 
 
-        return maxarea;
 
     }
-
-
-
 
     public static void main(String[] args) {
-        int []array={1,1};
-        int []array2={1,8,6,2,5,4,8,3,7};
-        int []array3={4,3,2,1,4};
 
-        System.out.println(maxTrapwater(array3));
+        System.out.println(removeStar("expire*****"));
 
-
+        
 
     }
+
 }
