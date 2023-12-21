@@ -9,7 +9,7 @@ public class practice {
         for (int i = array.length - 1; i >= 0; i--) {
 
             if (array[i] < 9) {
-                array[i]++;
+                array[i]=array[i]+1;
                 return array;
             }
             array[i] = 0;
