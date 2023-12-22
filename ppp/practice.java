@@ -1,5 +1,6 @@
 package ppp;
 
+import java.util.Arrays;
 /**
  * practice
  */
@@ -241,9 +242,84 @@ public class practice {
 
     }
 
+
+    public static boolean backspaceString(String s,String t){
+        StringBuilder s1= new StringBuilder();
+        StringBuilder s2= new StringBuilder();
+
+        char c1[]= s.toCharArray();
+        char c2[]=t.toCharArray();
+
+        for(int i=0;i<c1.length;i++){
+            if(c1[i]=='#'){
+                if(s1.length()>0){
+                    s1.deleteCharAt(s1.length()-1);
+                }
+            }else{
+                s1.append(c1[i]);
+            }
+        }
+
+        for(int i=0;i<c2.length;i++){
+            if(c2[i]=='#'){
+                if(s2.length()>0){
+                    s2.deleteCharAt(s2.length()-1);
+                }
+            }else{
+                s2.append(c2[i]);
+            }
+        }
+        System.err.println(s1);
+                System.err.println(s2);
+
+
+        return s1.toString().equals(s2.toString());
+    }
+
+
+
+
+    public static int baseBallScore(String []operations){
+        int n=operations.length;
+        int scores[]=new int[1];
+
+        for(int i=0;i<n;i++){
+            if(operations[i]=="C"){
+                scores=Arrays.copyOfRange(scores, 0, scores.length-1);
+
+            }else if(operations[i]=="D"){
+                int lastScore=scores[scores.length-1];
+                scores=Arrays.copyOf(scores, scores.length+1);
+                scores[scores.length-1]=lastScore*2;
+            }else if(operations[i]=="+"){
+                int lastScore=scores[scores.length-1];
+                int lastSecondScore=scores[scores.length-2];
+                scores=Arrays.copyOf(scores,scores.length+1);
+                scores[scores.length-1]=lastScore+lastSecondScore;
+            }else{
+                scores=Arrays.copyOf(scores, scores.length+1);
+                scores[scores.length-1]=Integer.valueOf(operations[i]);
+            }
+        }
+
+
+        int sum=0;
+
+        for(int i=0;i<scores.length;i++){
+            sum+=scores[i];
+        }
+
+        return sum;
+
+    }
+
     public static void main(String[] args) {
 
-        System.out.println(removeStar("expire*****"));
+        String []operations={"5","2","C","D","+"};
+
+        System.out.println(baseBallScore(operations));
+
+   
 
         
 
