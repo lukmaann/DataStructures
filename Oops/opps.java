@@ -61,7 +61,7 @@ class cat implements herbivorous,carnivorous{
 
 
 
-class Student {
+class Studwent {
     int rollno;
     String name;
     private String password;

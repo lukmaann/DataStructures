@@ -313,11 +313,19 @@ public class practice {
 
     }
 
+
+
+
+
     public static void main(String[] args) {
 
-        String []operations={"5","2","C","D","+"};
+        int array[]={0,0,1,1,1,1,2,3,3};
 
-        System.out.println(baseBallScore(operations));
+        
+
+
+
+     
 
    
 
