@@ -1,42 +1,161 @@
-public class recursionbasics{
+public class recursionbasics {
 
+    public static void printInc(int n) {
 
-    public static void printInc(int n){
-
-
-        if(n==1){
-            System.out.print(n+" ");
+        if (n == 1) {
+            System.out.print(n + " ");
             return;
         }
 
+        printInc(n - 1);
+        System.out.print(n + " ");
+    }
 
-        printInc(n-1);
-        System.out.print(n+" ");
+    public static int facto(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * facto(n - 1);
+    }
+
+    public static int febonachi(int n) {
+
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        return (febonachi(n - 1) + febonachi(n - 2));
+        // return febonachi(n)+febonachi(n-1);
+
+    }
+
+    public static int sumOfNaturalnumbers(int n) {
+        if (n == 1) {
+            return 1;
+        }
+
+        return n + sumOfNaturalnumbers(n - 1);
+    }
+
+    public static boolean sortedornot(int array[], int i) {
+        if (i == array.length - 1) {
+            return true;
+        }
+
+        return array[i] < array[i + 1] && sortedornot(array, i + 1);
+
     }
 
 
-    public static int facto(int n){
+    public static int firstOccurance(int array[],int target,int index){
+        if(index==array.length){
+            return -1;
+        }
+        if(array[index]==target){
+            return index;
+        }
+
+        return firstOccurance(array, target, index+1);
+    }
+
+
+    public static int lastOccurance(int array[],int target,int index){
+        if(index==array.length){
+            return -1;
+        }
+
+        int isFound=lastOccurance(array, target, index+1);
+
+        if(isFound==-1 && array[index]==target){
+            return index;
+        }
+
+        return isFound;
+    }
+
+
+
+    public static double xPowerN(double x ,int n){
+        if(n==1){
+            return x;
+        }
+
+        if(n<0){
+           n=Math.abs(n);
+
+           return 1/xPowerN(x, n);
+        }
+        return xPowerN(x, n-1)*x;
+        
+    }
+
+    public static double xpowerNOpt(double x,int n){
         if(n==0){
             return 1;
+            
         }
-       return n*facto(n-1);
+
+        if(n<0){
+            n=Math.abs(n);
+            
+            if(n%2==0){
+                return 1/(xpowerNOpt(x, n/2)*xpowerNOpt(x, n/2));
+            }else{
+                return 1/(x*xpowerNOpt(x, n/2)*xpowerNOpt(x, n/2));
+            }
+
+            
+        }
+
+        if(n%2==0){
+            return xpowerNOpt(x, n/2)*xpowerNOpt(x, n/2);
+        }else{
+            return x*xpowerNOpt(x, n/2)*xpowerNOpt(x, n/2);
+        }
     }
 
-
-    public static int febonachi(int n){
-      
-    }
-
-    public static int sumOfNaturalnumbers(int n){
-        if(n==1){
+    public static double myPow(double x,int n){
+        if(n==0){
             return 1;
+
         }
 
-        return n+sumOfNaturalnumbers(n-1);
-    }
-    public static void main(String args[]){
+        double halfPower=myPow(x, n/2);
 
-        // System.out.println(sumOfNaturalnumbers(4));
-        febonachi(10);
+        if(n<0){
+            x=1/x;
+        
+
+            
+        }
+
+        if(n%2!=0){
+            return x*halfPower*halfPower;
+        }
+
+        return halfPower*halfPower;
+    }
+
+
+    
+       
+
+
+    public static void printArray(int array[]){
+        for(int i=0;i<array.length;i++){
+            System.out.print(array[i]+" ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+
+        int array[] = { 10,10,10,10 };
+        System.out.println(myPow(2, -2));
+
+
+
+  
+
     }
 }

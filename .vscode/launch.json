@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "practice",
+            "request": "launch",
+            "mainClass": "practice",
+            "projectName": "DATASTRUCTURES & ALGORITHMS_fd7ec3c"
+        },
+        {
+            "type": "java",
             "name": "recursionbasics",
             "request": "launch",
             "mainClass": "recursionbasics",
