@@ -148,10 +148,66 @@ public class recursionbasics {
         System.out.println();
     }
 
+
+   public static int tilingProblem(int n){
+    if(n==0 || n==1){
+        return 1;
+    }
+    
+    return tilingProblem(n-1)+tilingProblem(n-2);
+   }
+
+   public static int dominotrimino(int n){
+  if(n<=2){
+    return 0;
+
+  }
+  if(n==3){
+    return 2;
+  }
+
+   return dominotrimino(n-1)+dominotrimino(n-2);
+   }
+
+
+
+   public static void printooccurance(int array[],int key,int n){
+
+    if(n==array.length){
+        return ;
+    }
+    if(array[n]==key){
+        System.out.print(n+" ");
+    }
+
+     printooccurance(array,key,n+1);
+   }
+
+   public static void removeDuplicates(String str,int n,StringBuilder sb, boolean map[]){
+    if(n==str.length()){
+        System.out.println(sb);
+        return;
+    }
+    char curr=str.charAt(n);
+
+    if(map[curr-'a']==true){
+        removeDuplicates(str, n+1, sb, map);
+    }else{
+        map[curr-'a']=true;
+        removeDuplicates(str, n+1, sb.append(curr), map);
+    }
+   }
+
+
+
+   public static void removeDuplicateString(String s,StringBuilder sb,int n,boolean map[])
     public static void main(String args[]) {
 
-        int array[] = { 10,10,10,10 };
-        System.out.println(myPow(2, -2));
+        int array[] = { 3, 2, 4, 5, 6, 2, 7, 2, 2};
+
+            removeDuplicates("abcddc", 0,new StringBuilder() , new boolean[26]);
+
+        
 
 
 
