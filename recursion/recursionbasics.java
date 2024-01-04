@@ -1,3 +1,5 @@
+package recursion;
+
 public class recursionbasics {
 
     public static void printInc(int n) {
@@ -199,19 +201,93 @@ public class recursionbasics {
    }
 
 
+   public static int friendsPairing(int n){
+    if(n<=2){
+        return n;
+    }
 
-   public static void removeDuplicateString(String s,StringBuilder sb,int n,boolean map[])
+    return friendsPairing(n-1)+(n-1)*friendsPairing(n-2);
+   }
+
+   public static int dinomotiles(int n){
+    if(n==2){
+        return n;
+    }
+    if(n==1||n==0){
+        return 0;
+    }
+
+    if(n==3){
+        return 5;
+    }
+
+    return (dinomotiles(n-1)+dinomotiles(n-2))+dinomotiles(n-2)*2;
+   }
+
+
+
+   public static void printBinaryString(int n,int lastIndex,String str){
+    if(n==0){
+        System.out.println(str);
+    
+        return;
+    }
+
+    printBinaryString(n-1, 0, str+"0");
+    if(lastIndex==0){
+        printBinaryString(n-1, 1, str+"1");
+    }
+   }
+
+   public static int findlength(String str,int n){
+    if(n==str.length()){
+        return n;
+    }
+
+    return findlength(str, n+1);
+
+   }
+
+   public static void printNumbers(int n){
+    
+    String digits[]={"zero","one","two","three","four","five","six","seven","eight","nine"};
+
+    if(n==0){
+        return ;
+    }
+    int lastnum=n%10;
+    printNumbers(n/10);
+    System.out.print(digits[lastnum]+" ");
+
+
+   }
+
+   public static int printLength(String str){
+    if(str.length()==0){
+        return 0;
+    }
+
+    return printLength(str.substring(1))+1;
+   }
+
+
+
+   public static int countSubstring(String s){
+    int count=0;
+    for(int i=0;i<s.length();i++){
+        for(int j=i;j<s.length();j++){
+            if(s.charAt(i)==s.charAt(j)){
+                count++;
+            }
+        }
+    }
+
+    return count;
+   }
+
+
     public static void main(String args[]) {
-
-        int array[] = { 3, 2, 4, 5, 6, 2, 7, 2, 2};
-
-            removeDuplicates("abcddc", 0,new StringBuilder() , new boolean[26]);
-
-        
-
-
-
-  
+        System.out.println(countSubstring("abcab"));
 
     }
 }
