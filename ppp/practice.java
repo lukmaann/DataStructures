@@ -1,74 +1,35 @@
 public class practice {
 
-    public static void selectionSort(int array[]) {
-        for (int i = 0; i < array.length; i++) {
-            int min = i;
-            for (int j = i; j < array.length; j++) {
-                if (array[j] < array[min]) {
-                    min = j;
+    public static int search(int nums[], int target) {
+        int si = 0;
+        int ei = nums.length - 1;
+
+        while (si <= ei) {
+            int mid = si + (ei - si) / 2;
+            if (nums[mid] == target)
+                return mid;
+            if (nums[si] <= nums[mid]) {
+                if (nums[si] <= target && target <= nums[mid]) {
+                    ei = mid - 1;
+                } else {
+                    si = mid + 1;
+                }
+            } else {
+                if (nums[mid] <= target && target <= nums[ei]) {
+                    si = mid + 1;
+                } else {
+                    ei = mid - 1;
                 }
             }
-
-            int temp = array[i];
-            array[i] = array[min];
-            array[min] = temp;
         }
-    }
 
-    public static void printArray(int array[]) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-    }
-
-    public static int subarray(int array[]) {
-        int count = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i; j < array.length; j++) {
-                count++;
-            }
-        }
-        return count;
-
-    }
-
-    public static int maxpro(int nums[]) {
-        int n = nums.length;
-        int max = Integer.MIN_VALUE;
-
-        int pref=1;int suff=1;
-
-       for(int i=0;i<n;i++){
-       
-
-        
-        
-       }
-
-        
-        return max;
-
-    }
-
-    public static int maxSubArraySum(int nums[]){
-        int n=nums.length;
-        int max=Integer.MIN_VALUE;
-
-        int pref=0;
-        for(int i=0;i<n;i++){
-            if(pref<0) pref=0;
-
-            pref+=nums[i];
-            max=Math.max(pref,max);
-        }
-        return max;
+        return -1;
     }
 
     public static void main(String[] args) {
-        int array[] = { 0, 2 };
-        System.out.println(maxSubArraySum(array));
+
+        int array[] = { 5,1,3 };
+        System.out.println(search(array, 3));
 
     }
 }
