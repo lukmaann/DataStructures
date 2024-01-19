@@ -1,92 +1,64 @@
+import java.util.ArrayList;
+
 public class practise1 {
 
-    public static void mergeSort(int arr[], int l, int r) {
-        if (l >= r) {
-            return;
-        }
+    public static void rotate(int[] nums, int k) {
 
-        int mid = l + (r - l) / 2;
+        int n=nums.length;
+        k=k%n;
 
-        mergeSort(arr, l, mid);
-        mergeSort(arr, mid + 1, r);
-        merge(arr, l, mid, r);
+        reverse(nums, k, n-1);
+        reverse(nums,0,k-1);
+        reverse(nums, 0, n-1);
+
 
     }
 
-    public static void merge(int arr[], int l, int mid, int r) {
-        int temp[] = new int[(r - l) + 1];
+    public static void reverse(int array[], int start, int end){
 
-        int i = l;
-        int j = mid + 1;
-        int k = 0;
-
-        while (i <= mid && j <= r) {
-            if (arr[i] < arr[j]) {
-                temp[k] = arr[i];
-                i++;
-            } else {
-                temp[k] = arr[j];
-                j++;
-
-            }
-            k++;
+        
+        while(start<end){
+            int temp=array[start];
+            array[start]=array[end];
+            array[end]=temp;
+            start++;
+            end--;
         }
-
-        while( i<=mid){
-            temp[k++]=arr[i++];
-            
-
-        }
-
-        while(j<=r){
-            temp[k++]=arr[j++];
-        }
-
-        for(k=0,i=l;k<temp.length;k++,i++){
-            arr[i]=temp[k];
-
-        }
-
     }
 
 
-    public static void bubbleSort(int array[],int i){
-        if(i==array.length-2){
-            return;
+    public static ArrayList<Integer> rotateArray(ArrayList<Integer> array,int k){
+        ArrayList<Integer> temp= new ArrayList<>();
+
+        for(int i=k;i<array.size();i++){
+            temp.add(array.get(i));
+        }
+        for(int i=0;i<k;i++){
+            temp.add(array.get(i));
         }
 
+        return temp;
 
-       for(int j=i;j<array.length-1;j++){
-        if(array[j]>array[j+1]){
-            int temp=array[j];
-            array[j]=array[j+1];
-            array[j+1]=temp;
-        }
-
-       }
-        bubbleSort(array, i+1);
-
-    
+ 
     }
 
-
-    public static void printArray(int array[]){
-        for(int i=0;i<array.length;i++){
-            System.out.print(array[i]+" ");
+    public static void printArray(int array[]) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
 
     public static void main(String[] args) {
+        int array[] = { 1, 2, 3, 4, 5, 6, 7 };
+        ArrayList<Integer> arraylist= new ArrayList<>();
 
-        int arr[]= {1,3,1,3,5,21,4,6,7,8};
-        printArray(arr);
-        bubbleSort(arr, 0);
-        printArray(arr);
+        for(int i=0;i<7;i++){
+            arraylist.add(i+1);
+        }
 
-      
-
+        System.out.println(rotateArray(arraylist, 3));
         
-    }
 
+    }
 }
