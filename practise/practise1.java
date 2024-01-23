@@ -1,75 +1,55 @@
-import java.util.ArrayList;
+public class practise1{
 
-public class practise1 {
+    public static int lastIndex(int arr[], int idx,int key){
+        if(idx==arr.length){
+            return -1;
+        }
 
-    public static void rotate(int[] nums, int k) {
+        int isFound=lastIndex(arr,idx+1,key);
 
-        int n = nums.length;
-        k = k % n;
+        if(isFound==-1 && arr[idx]==key){
+            return idx;
+        }
 
-        reverse(nums, k, n - 1);
-        reverse(nums, 0, k - 1);
-        reverse(nums, 0, n - 1);
-
+        return isFound;
     }
 
-    public static void reverse(int array[], int start, int end) {
 
-        while (start < end) {
-            int temp = array[start];
-            array[start] = array[end];
-            array[end] = temp;
-            start++;
-            end--;
+    public static void printBin(int n, int lastIndex, String str){
+        if(n==0){
+            System.out.println(str);
+            return;
+        }
+
+        printBin(n-1, 0, str+"0");
+        if(lastIndex==0){
+            printBin(n-1, 1, str+"1");
+
         }
     }
 
-    public static ArrayList<Integer> rotateArray(ArrayList<Integer> array, int k) {
-        ArrayList<Integer> temp = new ArrayList<>();
 
-        for (int i = k; i < array.size(); i++) {
-            temp.add(array.get(i));
-        }
-        for (int i = 0; i < k; i++) {
-            temp.add(array.get(i));
+    public static int missingNumber(int arr[]){
+        int n=arr.length+1;
+
+        int sumTobe=(n*(n+1))/2;
+        int totalSum=0;
+
+        for(int num : arr){
+            totalSum+=num;
         }
 
-        return temp;
+        return sumTobe-totalSum;
+
+    
 
     }
 
-    public static void movezeros(int nums[]) {
-
-       int k=0;
-
-       for(int i=0;i<nums.length;i++){
-        if(nums[i]!=0){
-            int temp=nums[i];
-            nums[i]=nums[k];
-            nums[k]=temp;
-            k++;
-        }
-       }
-
-    }
-
-    public static void removeZeros(int array[]){
-        System.out.println("lukmaannadaf");
-    }
-
-    public static void printArray(int array[]) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-    }
-
+  
     public static void main(String[] args) {
-        int array[] = { 0,1,2,3,4,5,6,7,8,9 };
 
-        printArray(array);
-        movezeros(array);
-        printArray(array);
+        System.out.println(missingNumber(new int[]{1,2,3,4,5,6,7}));
 
+        
     }
 }
