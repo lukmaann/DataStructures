@@ -9,25 +9,9 @@ import java.util.List;
 
 public class pairSumProblem {
 
-    public static List<int[]> pairSum(int[] arr, int s) {
+    public static void pairSum(int[] arr, int s) {
 
-        ArrayList<int[]> list = new ArrayList<>();
-        HashSet<int[]> set = new HashSet<>();
 
-        for (int i = 0; i < arr.length; i++) {
-
-            for (int j = i; j < arr.length; j++) {
-                if (arr[i] + arr[j] == s) {
-
-                    list.add(new int[] { arr[i], arr[j] });
-
-                }
-            }
-        }
-
-        Collections.sort(list, Comparator.comparingInt(ar -> ar[1]));
-
-        return list;
     }
 
     public static void printArray(int array[]) {
