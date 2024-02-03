@@ -44,7 +44,7 @@ public class reverseTheNumber {
 
     public static void main(String[] args) {
 
-        System.out.println(reverse(-1563847412));
+        System.out.println(reverse(-90));
         
     }
     
